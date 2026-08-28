@@ -19,7 +19,7 @@ import {
     MovieConnectionResponse,
     MessageResponse,
 } from '@/src/types/api-responses.types'
-import { MoviesContextType } from '@/src/types/contexts.type'
+import { MoviesContextType } from '@/src/types/contexts.types'
 // Variables
 import { api } from '@/src/utils/api'
 import { endpoints } from '@/src/constants/server.constants'

@@ -1,0 +1,27 @@
+@import '../../../globals.css';
+
+.crew-page {
+    @apply space-y-8;
+}
+
+/* Header & Controls */
+.crew-header {
+    @apply flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-neutral-800/80 pb-6;
+}
+
+.crew-header__title {
+    @apply text-2xl font-bold tracking-tight text-white;
+}
+
+.crew-header__subtitle {
+    @apply text-xs text-neutral-400 mt-1;
+}
+
+/* Grids */
+.crew-grid {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4;
+}
+
+.crew-grid__empty {
+    @apply text-sm text-neutral-400 col-span-full py-12 text-center bg-neutral-900/40 rounded-xl border border-neutral-800/50;
+}

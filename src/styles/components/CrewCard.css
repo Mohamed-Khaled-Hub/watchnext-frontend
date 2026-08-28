@@ -1,0 +1,44 @@
+@import '../globals.css';
+
+.crew-card {
+    @apply flex flex-col items-center gap-2 rounded-xl bg-neutral-900 border border-neutral-800/80 p-3
+    hover:border-amber-500/30 hover:bg-neutral-800/50
+    hover:shadow-[0_4px_20px_rgba(251,191,36,0.12)]
+    transition-all duration-200 overflow-hidden;
+}
+
+.crew-card__avatar-container {
+    @apply relative w-24 h-24 rounded-full overflow-hidden bg-neutral-950 mt-2 border border-transparent transition-colors duration-200;
+}
+
+.crew-card:hover .crew-card__avatar-container {
+    @apply border-amber-500/40;
+}
+
+.crew-card__avatar {
+    @apply object-cover rounded-full transition-transform duration-300;
+}
+
+.crew-card:hover .crew-card__avatar {
+    @apply scale-105;
+}
+
+.crew-card__fallback {
+    @apply w-full h-full flex items-center justify-center bg-neutral-800 text-neutral-400 font-bold text-lg rounded-full;
+}
+
+.crew-card__content {
+    @apply w-full space-y-0.5 text-center;
+}
+
+.crew-card__name {
+    @apply text-sm font-semibold text-white truncate transition-colors duration-200;
+}
+
+.crew-card:hover .crew-card__name {
+    @apply text-amber-400;
+}
+
+.crew-card__roles {
+    @apply text-xs text-neutral-400 truncate capitalize;
+}

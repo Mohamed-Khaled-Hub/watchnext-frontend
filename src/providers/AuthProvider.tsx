@@ -23,7 +23,7 @@ import {
     RegisterDto,
     ChangePasswordDto,
 } from '@/src/types/api-requests.types'
-import { AuthContextType } from '@/src/types/contexts.type'
+import { AuthContextType } from '@/src/types/contexts.types'
 // Variables
 import { api } from '@/src/utils/api'
 import { endpoints } from '@/src/constants/server.constants'
