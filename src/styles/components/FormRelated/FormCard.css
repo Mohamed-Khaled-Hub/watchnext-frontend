@@ -1,0 +1,25 @@
+@import '../../globals.css';
+
+.form-card {
+    @apply w-full max-w-md rounded-2xl bg-neutral-900 border border-neutral-800/80 p-8 shadow-2xl shadow-black/50 backdrop-blur-sm;
+}
+
+.form-card__header {
+    @apply text-center mb-8;
+}
+
+.form-card__title {
+    @apply text-3xl font-bold tracking-tight text-white mb-2;
+}
+
+.form-card__subtitle {
+    @apply text-sm text-neutral-400;
+}
+
+.form-card__footer {
+    @apply mt-8 text-center text-xs text-neutral-400;
+}
+
+.form-card__footer-link {
+    @apply font-semibold text-neutral-200 hover:text-white hover:underline transition-colors;
+}

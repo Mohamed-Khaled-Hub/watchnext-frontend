@@ -1,0 +1,67 @@
+@import '../../globals.css';
+
+/* Container Layout */
+.navbar {
+    @apply w-full border-b border-neutral-800/80 bg-neutral-900/90 backdrop-blur-sm sticky top-0 z-50;
+}
+
+/* Top Section */
+.navbar__top {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between border-b border-neutral-800/60;
+}
+
+.navbar__logo {
+    @apply text-xl font-bold tracking-tight text-white hover:text-neutral-200 transition-colors;
+}
+
+/* User & Auth Section */
+.navbar__user-section {
+    @apply flex items-center gap-4;
+}
+
+.navbar__logged-in-container {
+    @apply flex items-center gap-3;
+}
+
+/* User Greeting & Sign Out Wrapper */
+.navbar__user-details {
+    @apply flex flex-col items-end gap-0.5;
+}
+
+.navbar__user-greeting {
+    @apply text-xs font-semibold text-neutral-200 tracking-wide;
+}
+
+/* Avatar Circle */
+.navbar__avatar {
+    @apply w-9 h-9 rounded-full bg-neutral-800 hover:bg-neutral-700 active:bg-neutral-800
+    border border-neutral-700/80 flex items-center justify-center
+    text-sm font-bold text-neutral-100 uppercase transition-all duration-200
+    shadow-sm shadow-neutral-950/40 select-none;
+}
+
+/* Buttons */
+.navbar__login-btn {
+    @apply inline-flex items-center gap-2 py-2 px-4 rounded-lg bg-neutral-100 hover:bg-white active:bg-neutral-200
+    text-neutral-950 text-xs font-semibold shadow-md shadow-neutral-950/20
+    transition-all duration-200 cursor-pointer;
+}
+
+.navbar__logout-btn {
+    @apply inline-flex items-center gap-1 py-0.5 px-1.5 rounded bg-transparent hover:bg-neutral-800
+    text-neutral-400 hover:text-red-400 text-[11px] font-medium
+    transition-all duration-200 cursor-pointer;
+}
+
+/* Bottom Navigation Links */
+.navbar__bottom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center gap-6;
+}
+
+.navbar__nav-link {
+    @apply text-sm font-medium text-neutral-400 hover:text-white transition-colors;
+}
+
+.navbar__nav-link--active {
+    @apply text-white font-semibold;
+}

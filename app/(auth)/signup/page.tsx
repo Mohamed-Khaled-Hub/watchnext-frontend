@@ -1,10 +1,14 @@
 'use client'
 
 // Core
-import Link from 'next/link'
 import { useState, SubmitEvent } from 'react'
 // Hooks
 import { useAuth } from '@/src/providers/AuthProvider'
+// Components
+import FormCard from '@/src/components/FormRelated/FormCard'
+import FormInput from '@/src/components/FormRelated/FormInput'
+import FormButton from '@/src/components/FormRelated/FormButton'
+import FormError from '@/src/components/FormRelated/FormError'
 // Style
 import '@/src/styles/app/(auth)/signup/page.css'
 
@@ -52,127 +56,86 @@ export default function SignupPage() {
 
     return (
         <main className='signup-page'>
-            <div className='signup-page__card'>
-                {/* Header */}
-                <header className='signup-page__header'>
-                    <h1 className='signup-page__title'>Create an account</h1>
-                    <p className='signup-page__subtitle'>
-                        Enter your information to get started
-                    </p>
-                </header>
-
+            <FormCard
+                title='Create an account'
+                subtitle='Enter your information to get started'
+                footerText='Already have an account?'
+                footerLinkText='Sign in'
+                footerLinkHref='/login'
+            >
                 {/* Error Banner */}
-                {error && (
-                    <div className='mb-4 rounded-lg bg-red-500/10 border border-red-500/20 p-3 text-xs text-red-400 text-center'>
-                        {error}
-                    </div>
-                )}
+                <FormError message={error} />
 
                 {/* Main Form */}
                 <form onSubmit={handleSubmit} className='signup-page__form'>
-                    <div className='signup-page__field-group'>
-                        <label htmlFor='name' className='signup-page__label'>
-                            Full Name
-                        </label>
-                        <input
-                            id='name'
-                            type='text'
-                            required
-                            placeholder='John Doe'
-                            className='signup-page__input'
-                            value={formData.name}
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    name: e.target.value,
-                                })
-                            }
-                        />
-                    </div>
+                    <FormInput
+                        id='name'
+                        label='Full Name'
+                        type='text'
+                        required
+                        placeholder='John Doe'
+                        value={formData.name}
+                        onChange={(e) =>
+                            setFormData({
+                                ...formData,
+                                name: e.target.value,
+                            })
+                        }
+                    />
 
-                    <div className='signup-page__field-group'>
-                        <label htmlFor='email' className='signup-page__label'>
-                            Email Address
-                        </label>
-                        <input
-                            id='email'
-                            type='email'
-                            required
-                            placeholder='name@example.com'
-                            className='signup-page__input'
-                            value={formData.email}
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    email: e.target.value,
-                                })
-                            }
-                        />
-                    </div>
+                    <FormInput
+                        id='email'
+                        label='Email Address'
+                        type='email'
+                        required
+                        placeholder='name@example.com'
+                        value={formData.email}
+                        onChange={(e) =>
+                            setFormData({
+                                ...formData,
+                                email: e.target.value,
+                            })
+                        }
+                    />
 
-                    <div className='signup-page__field-group'>
-                        <label
-                            htmlFor='password'
-                            className='signup-page__label'
-                        >
-                            Password
-                        </label>
-                        <input
-                            id='password'
-                            type='password'
-                            required
-                            placeholder='••••••••'
-                            className='signup-page__input'
-                            value={formData.password}
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    password: e.target.value,
-                                })
-                            }
-                        />
-                    </div>
+                    <FormInput
+                        id='password'
+                        label='Password'
+                        isPassword
+                        required
+                        placeholder='••••••••'
+                        value={formData.password}
+                        onChange={(e) =>
+                            setFormData({
+                                ...formData,
+                                password: e.target.value,
+                            })
+                        }
+                    />
 
-                    <div className='signup-page__field-group'>
-                        <label
-                            htmlFor='confirmPassword'
-                            className='signup-page__label'
-                        >
-                            Confirm Password
-                        </label>
-                        <input
-                            id='confirmPassword'
-                            type='password'
-                            required
-                            placeholder='••••••••'
-                            className='signup-page__input'
-                            value={formData.confirmPassword}
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    confirmPassword: e.target.value,
-                                })
-                            }
-                        />
-                    </div>
+                    <FormInput
+                        id='confirmPassword'
+                        label='Confirm Password'
+                        isPassword
+                        required
+                        placeholder='••••••••'
+                        value={formData.confirmPassword}
+                        onChange={(e) =>
+                            setFormData({
+                                ...formData,
+                                confirmPassword: e.target.value,
+                            })
+                        }
+                    />
 
-                    <button
-                        type='submit'
-                        disabled={loading}
-                        className='signup-page__submit-btn disabled:opacity-50 disabled:cursor-not-allowed'
+                    <FormButton
+                        loading={loading}
+                        loadingText='Creating Account...'
                     >
-                        {loading ? 'Creating Account...' : 'Create Account'}
-                    </button>
+                        Create Account
+                    </FormButton>
                 </form>
-
-                {/* Footer Link */}
-                <footer className='signup-page__footer'>
-                    Already have an account?{' '}
-                    <Link href='/login' className='signup-page__login-link'>
-                        Sign in
-                    </Link>
-                </footer>
-            </div>
+            </FormCard>
         </main>
     )
 }

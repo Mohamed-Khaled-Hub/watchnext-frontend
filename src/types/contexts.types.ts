@@ -5,6 +5,8 @@ import {
     ChangePasswordDto,
 } from '@/src/types/api-requests.types'
 import {
+    CrewResponse,
+    CrewMoviesResponse,
     UserResponse,
     MovieResponse,
     MessageResponse,
@@ -13,6 +15,7 @@ import {
     MovieRelatedResponse,
     MovieConnectionResponse,
 } from '@/src/types/api-responses.types'
+import { FooterSection, NavigationLink } from '@/src/types/ui.types'
 
 export type AuthContextType = {
     login: (loginData: LoginDto) => Promise<void>
@@ -50,4 +53,15 @@ export type MoviesContextType = {
     unwatchMovie: (id: string) => Promise<MessageResponse>
     addToWatchlist: (id: string) => Promise<MessageResponse>
     removeFromWatchlist: (id: string) => Promise<MessageResponse>
+}
+
+export type CrewContextType = {
+    getAllCrew: (search?: string) => Promise<CrewResponse[]>
+    getCrewById: (id: string) => Promise<CrewResponse>
+    getCrewMovies: (id: string) => Promise<CrewMoviesResponse[]>
+}
+
+export type NavigationContextType = {
+    navLinks: NavigationLink[]
+    footerSections: FooterSection[]
 }

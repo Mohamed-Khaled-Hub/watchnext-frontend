@@ -1,0 +1,5 @@
+@import '../../globals.css';
+
+.auth-layout {
+    @apply min-h-screen flex flex-col;
+}

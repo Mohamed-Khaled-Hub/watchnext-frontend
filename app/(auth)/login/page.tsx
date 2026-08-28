@@ -1,10 +1,14 @@
 'use client'
 
 // Core
-import Link from 'next/link'
 import { useState, SubmitEvent } from 'react'
 // Hooks
 import { useAuth } from '@/src/providers/AuthProvider'
+// Components
+import FormCard from '@/src/components/FormRelated/FormCard'
+import FormInput from '@/src/components/FormRelated/FormInput'
+import FormButton from '@/src/components/FormRelated/FormButton'
+import FormError from '@/src/components/FormRelated/FormError'
 // Style
 import '@/src/styles/app/(auth)/login/page.css'
 
@@ -40,81 +44,53 @@ export default function LoginPage() {
 
     return (
         <main className='login-page'>
-            <div className='login-page__card'>
-                {/* Header */}
-                <header className='login-page__header'>
-                    <h1 className='login-page__title'>Welcome back</h1>
-                    <p className='login-page__subtitle'>
-                        Please enter your details to sign in
-                    </p>
-                </header>
-
+            <FormCard
+                title='Welcome back'
+                subtitle='Please enter your details to sign in'
+                footerText="Don't have an account?"
+                footerLinkText='Sign up'
+                footerLinkHref='/signup'
+            >
                 {/* Error Banner */}
-                {error && (
-                    <div className='mb-4 rounded-lg bg-red-500/10 border border-red-500/20 p-3 text-xs text-red-400 text-center'>
-                        {error}
-                    </div>
-                )}
+                <FormError message={error} />
 
                 {/* Main Form */}
                 <form onSubmit={handleSubmit} className='login-page__form'>
-                    <div className='login-page__field-group'>
-                        <label htmlFor='email' className='login-page__label'>
-                            Email Address
-                        </label>
-                        <input
-                            id='email'
-                            type='email'
-                            required
-                            placeholder='name@example.com'
-                            className='login-page__input'
-                            value={formData.email}
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    email: e.target.value,
-                                })
-                            }
-                        />
-                    </div>
+                    <FormInput
+                        id='email'
+                        label='Email Address'
+                        type='email'
+                        required
+                        placeholder='name@example.com'
+                        value={formData.email}
+                        onChange={(e) =>
+                            setFormData({
+                                ...formData,
+                                email: e.target.value,
+                            })
+                        }
+                    />
 
-                    <div className='login-page__field-group'>
-                        <label htmlFor='password' className='login-page__label'>
-                            Password
-                        </label>
-                        <input
-                            id='password'
-                            type='password'
-                            required
-                            placeholder='••••••••'
-                            className='login-page__input'
-                            value={formData.password}
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    password: e.target.value,
-                                })
-                            }
-                        />
-                    </div>
+                    <FormInput
+                        id='password'
+                        label='Password'
+                        isPassword
+                        required
+                        placeholder='••••••••'
+                        value={formData.password}
+                        onChange={(e) =>
+                            setFormData({
+                                ...formData,
+                                password: e.target.value,
+                            })
+                        }
+                    />
 
-                    <button
-                        type='submit'
-                        disabled={loading}
-                        className='login-page__submit-btn disabled:opacity-50 disabled:cursor-not-allowed'
-                    >
-                        {loading ? 'Signing in...' : 'Sign in'}
-                    </button>
+                    <FormButton loading={loading} loadingText='Signing in...'>
+                        Sign in
+                    </FormButton>
                 </form>
-
-                {/* Footer Link */}
-                <footer className='login-page__footer'>
-                    Don&#39;t have an account?{' '}
-                    <Link href='/signup' className='login-page__signup-link'>
-                        Sign up
-                    </Link>
-                </footer>
-            </div>
+            </FormCard>
         </main>
     )
 }

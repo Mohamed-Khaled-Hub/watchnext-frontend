@@ -1,0 +1,50 @@
+@import '../../globals.css';
+
+/* Footer Outer Container */
+.footer {
+    @apply w-full border-t border-neutral-800/80 bg-neutral-900/90 text-neutral-400 mt-auto;
+}
+
+/* Main Content Area */
+.footer__container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 md:grid-cols-4 gap-8;
+}
+
+/* Brand Section */
+.footer__brand {
+    @apply space-y-3 md:col-span-1;
+}
+
+.footer__logo {
+    @apply text-xl font-bold tracking-tight text-white hover:text-neutral-200 transition-colors inline-block;
+}
+
+.footer__description {
+    @apply text-xs text-neutral-400 leading-relaxed max-w-xs;
+}
+
+/* Link Columns */
+.footer__section {
+    @apply space-y-3;
+}
+
+.footer__heading {
+    @apply text-xs font-semibold uppercase tracking-wider text-neutral-200;
+}
+
+.footer__links {
+    @apply space-y-2;
+}
+
+.footer__link {
+    @apply text-xs text-neutral-400 hover:text-white transition-colors block;
+}
+
+/* Bottom Bar */
+.footer__bottom {
+    @apply border-t border-neutral-800/60 bg-neutral-950/50 py-4;
+}
+
+.footer__bottom-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500;
+}
