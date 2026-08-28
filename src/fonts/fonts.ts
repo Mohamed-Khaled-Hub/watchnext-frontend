@@ -1,5 +1,5 @@
-import { Google_Sans } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
-export const mainFont = Google_Sans({
-    weight: ['400', '500', '600', '700'],
+export const mainFont = Inter({
+    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 })

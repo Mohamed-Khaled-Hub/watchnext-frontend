@@ -1,0 +1,56 @@
+@import '../../../globals.css';
+
+/* Layout & Container */
+.login-page {
+    @apply min-h-screen w-full flex items-center justify-center bg-neutral-950 text-neutral-100 p-4 antialiased;
+}
+
+.login-page__card {
+    @apply w-full max-w-md rounded-2xl bg-neutral-900 border border-neutral-800/80 p-8 shadow-2xl shadow-black/50 backdrop-blur-sm;
+}
+
+/* Header Section */
+.login-page__header {
+    @apply text-center mb-8;
+}
+
+.login-page__title {
+    @apply text-3xl font-bold tracking-tight text-white mb-2;
+}
+
+.login-page__subtitle {
+    @apply text-sm text-neutral-400;
+}
+
+/* Form Elements */
+.login-page__form {
+    @apply space-y-5;
+}
+
+.login-page__field-group {
+    @apply space-y-2;
+}
+
+.login-page__label {
+    @apply block text-xs font-semibold uppercase tracking-wider text-neutral-300;
+}
+
+.login-page__input {
+    @apply w-full px-4 py-3 rounded-lg bg-neutral-950 border border-neutral-800 text-neutral-100 placeholder-neutral-500
+    focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:border-transparent transition-all duration-200;
+}
+
+/* Action Buttons */
+.login-page__submit-btn {
+    @apply w-full py-3.5 px-4 rounded-lg bg-neutral-100 hover:bg-white active:bg-neutral-200
+    text-neutral-950 font-semibold shadow-lg shadow-neutral-950/20 transition-all duration-200 cursor-pointer;
+}
+
+/* Footer */
+.login-page__footer {
+    @apply mt-8 text-center text-xs text-neutral-400;
+}
+
+.login-page__signup-link {
+    @apply font-semibold text-neutral-200 hover:text-white hover:underline transition-colors;
+}
