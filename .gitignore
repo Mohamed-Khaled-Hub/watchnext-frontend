@@ -17,8 +17,8 @@
 /.next/
 /out/
 
-# IDEs and editors
-/.idea
+# folders
+.idea
 
 # production
 /build
