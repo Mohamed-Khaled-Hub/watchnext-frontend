@@ -1,0 +1,125 @@
+@import '../../../globals.css';
+
+.profile-page {
+    @apply min-h-screen py-8 px-4 sm:px-6 lg:px-8;
+}
+
+.profile-page__container {
+    @apply max-w-6xl mx-auto space-y-8;
+}
+
+.profile-page__loading {
+    @apply min-h-[60vh] flex items-center justify-center;
+}
+
+.profile-page__loading-spinner {
+    @apply w-8 h-8 text-amber-500;
+}
+
+/* Header Section */
+.profile-page__header {
+    @apply flex flex-col sm:flex-row items-center sm:items-start gap-6 p-6 rounded-2xl bg-neutral-900 border border-neutral-800/80;
+}
+
+.profile-page__avatar-wrapper {
+    @apply shrink-0;
+}
+
+.profile-page__avatar {
+    @apply w-16 h-16 rounded-full bg-neutral-800 border border-neutral-700/80 flex items-center justify-center text-xl font-bold text-neutral-100 uppercase transition-all duration-200 shadow-sm shadow-neutral-950/40 select-none;
+}
+
+.profile-page__user-details {
+    @apply flex flex-col items-center sm:items-start text-center sm:text-left space-y-2;
+}
+
+.profile-page__username {
+    @apply text-2xl sm:text-3xl font-bold text-white;
+}
+
+.profile-page__meta-list {
+    @apply flex flex-wrap items-center justify-center sm:justify-start gap-4 text-sm text-neutral-400;
+}
+
+.profile-page__meta-item {
+    @apply flex items-center gap-1.5;
+}
+
+.profile-page__meta-icon {
+    @apply w-4 h-4 text-neutral-500;
+}
+
+/* Content & Tabs Section */
+.profile-page__content {
+    @apply space-y-6;
+}
+
+.profile-page__tabs {
+    @apply flex flex-wrap items-center gap-2 border-b border-neutral-800 pb-3;
+}
+
+.profile-page__tab {
+    @apply flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer text-neutral-400 hover:text-white hover:bg-neutral-800/50;
+}
+
+.profile-page__tab-icon {
+    @apply w-4 h-4;
+}
+
+.profile-page__tab-count {
+    @apply px-2 py-0.5 text-xs rounded-full bg-neutral-800 text-neutral-300;
+}
+
+.profile-page__tab--active {
+    @apply text-white bg-neutral-800/80 border border-neutral-700/60 shadow-sm;
+}
+
+.profile-page__tab--liked.profile-page__tab--active {
+    @apply border-rose-500/40 text-rose-400 bg-rose-500/10;
+}
+
+.profile-page__tab--watched.profile-page__tab--active {
+    @apply border-sky-500/40 text-sky-400 bg-sky-500/10;
+}
+
+.profile-page__tab--watchlist.profile-page__tab--active {
+    @apply border-emerald-500/40 text-emerald-400 bg-emerald-500/10;
+}
+
+/* Movie Grid */
+.profile-page__grid {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4;
+}
+
+.profile-page__empty-state {
+    @apply py-16 text-center text-neutral-500 rounded-xl border border-dashed border-neutral-800 bg-neutral-900/40;
+}
+
+/* Settings & Action Section */
+.profile-page__actions {
+    @apply p-6 rounded-2xl bg-neutral-900 border border-neutral-800/80 space-y-4;
+}
+
+.profile-page__actions-title {
+    @apply text-lg font-bold text-white border-b border-neutral-800 pb-2;
+}
+
+.profile-page__actions-buttons {
+    @apply flex flex-wrap items-center gap-4;
+}
+
+.profile-page__btn {
+    @apply flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 border cursor-pointer;
+}
+
+.profile-page__btn-icon {
+    @apply w-4 h-4;
+}
+
+.profile-page__btn--password {
+    @apply bg-neutral-800/80 border-neutral-700/60 text-neutral-200 hover:bg-neutral-700 hover:text-white;
+}
+
+.profile-page__btn--delete {
+    @apply bg-rose-500/10 border-rose-500/30 text-rose-400 hover:bg-rose-500/20 hover:border-rose-500/50;
+}

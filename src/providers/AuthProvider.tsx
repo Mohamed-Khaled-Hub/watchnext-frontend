@@ -92,12 +92,12 @@ export default function AuthProvider({ children }: PropsWithChildren) {
         [fetchMe, router]
     )
 
-    // POST /auth/change-password
+    // PATCH /auth/change-password
     const changePassword = useCallback(
         async (
             changePasswordData: ChangePasswordDto
         ): Promise<MessageResponse> => {
-            const response = await api.post<MessageResponse>(
+            const response = await api.patch<MessageResponse>(
                 endpoints[EndpointsEnum.AUTH].changePassword,
                 changePasswordData
             )

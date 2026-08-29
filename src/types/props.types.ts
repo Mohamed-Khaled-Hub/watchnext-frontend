@@ -75,3 +75,10 @@ export type MovieActionButtonProps = {
     onClick: () => void | Promise<void>
     variant: 'like' | 'watch' | 'watchlist'
 }
+
+export type DeleteAccountModalProps = {
+    isOpen: boolean
+    isDeleting: boolean
+    onClose: () => void
+    onConfirm: () => void
+}

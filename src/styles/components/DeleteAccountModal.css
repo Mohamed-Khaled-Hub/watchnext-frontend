@@ -1,0 +1,37 @@
+@import '../globals.css';
+
+.delete-account-modal__overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm;
+}
+
+.delete-account-modal {
+    @apply w-full max-w-md bg-neutral-900 border border-neutral-800 rounded-2xl p-6 shadow-2xl space-y-4;
+}
+
+.delete-account-modal__header {
+    @apply flex items-center justify-between text-lg font-bold text-white;
+}
+
+.delete-account-modal__close {
+    @apply text-neutral-400 hover:text-white text-xl p-1 rounded-lg hover:bg-neutral-800 transition-colors;
+}
+
+.delete-account-modal__body {
+    @apply text-sm text-neutral-300;
+}
+
+.delete-account-modal__actions {
+    @apply flex items-center justify-end gap-3 pt-2;
+}
+
+.delete-account-modal__btn {
+    @apply px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 flex items-center justify-center min-w-[80px];
+}
+
+.delete-account-modal__btn--cancel {
+    @apply bg-neutral-800 text-neutral-300 hover:bg-neutral-700 hover:text-white;
+}
+
+.delete-account-modal__btn--danger {
+    @apply bg-rose-600 text-white hover:bg-rose-500;
+}

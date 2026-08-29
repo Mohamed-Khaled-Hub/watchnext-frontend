@@ -1,0 +1,16 @@
+@import '../../../globals.css';
+
+/* Page Centering */
+.change-password-page {
+    @apply min-h-screen w-full flex items-center justify-center bg-neutral-950 text-neutral-100 p-4 antialiased;
+}
+
+/* Form Spacing */
+.change-password-page__form {
+    @apply space-y-5;
+}
+
+/* Success Alert Banner */
+.change-password-page__success {
+    @apply p-3 mb-4 rounded-xl text-xs font-semibold bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-center;
+}
