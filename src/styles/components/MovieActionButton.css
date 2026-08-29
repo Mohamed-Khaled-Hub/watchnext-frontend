@@ -1,0 +1,26 @@
+@import '../globals.css';
+
+.movie-action-btn {
+    @apply flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-xl text-xs font-semibold tracking-wide border transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed bg-neutral-800/80 border-neutral-700/60 text-neutral-300 hover:bg-neutral-700/80 hover:text-white hover:border-neutral-600 cursor-pointer;
+}
+
+.movie-action-btn__icon {
+    @apply w-4 h-4 shrink-0 transition-transform duration-200;
+}
+
+.movie-action-btn--loading {
+    @apply opacity-70 cursor-wait pointer-events-none;
+}
+
+/* Variant Active States */
+.movie-action-btn--like.movie-action-btn--active {
+    @apply bg-rose-500/15 border-rose-500/40 text-rose-400 hover:bg-rose-500/25;
+}
+
+.movie-action-btn--watch.movie-action-btn--active {
+    @apply bg-sky-500/15 border-sky-500/40 text-sky-400 hover:bg-sky-500/25;
+}
+
+.movie-action-btn--watchlist.movie-action-btn--active {
+    @apply bg-emerald-500/15 border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/25;
+}

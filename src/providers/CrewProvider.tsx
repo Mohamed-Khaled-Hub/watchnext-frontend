@@ -15,6 +15,7 @@ import { EndpointsEnum } from '@/src/enums/endpoints.enum'
 import {
     CrewResponse,
     CrewMoviesResponse,
+    CrewDetailsResponse,
 } from '@/src/types/api-responses.types'
 import { CrewContextType } from '@/src/types/contexts.types'
 // Variables
@@ -47,8 +48,8 @@ export default function CrewProvider({ children }: PropsWithChildren) {
 
     // GET /crew/:id
     const getCrewById = useCallback(
-        async (id: string): Promise<CrewResponse> => {
-            const response = await axios.get<CrewResponse>(
+        async (id: string): Promise<CrewDetailsResponse> => {
+            const response = await axios.get<CrewDetailsResponse>(
                 endpoints[EndpointsEnum.CREW].getCrewById(id)
             )
             return response.data

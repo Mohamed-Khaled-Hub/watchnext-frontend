@@ -21,10 +21,17 @@ import {
     TasteResponse,
     MessageResponse,
 } from '@/src/types/api-responses.types'
-import { MeContextType } from '@/src/types/contexts.types'
+import { MeContextType, UserListsState } from '@/src/types/contexts.types'
 // Variables
 import { api } from '@/src/utils/api'
 import { endpoints } from '@/src/constants/server.constants'
+
+// Initial State
+const initialUserLists: UserListsState = {
+    likedMovies: [],
+    watchedMovies: [],
+    watchlist: [],
+}
 
 // Context
 export const MeContext = createContext<MeContextType>({} as MeContextType)
@@ -41,6 +48,7 @@ export const useMe = () => {
 // Provider
 export default function MeProvider({ children }: PropsWithChildren) {
     const [me, setMe] = useState<UserResponse | null>(null)
+    const [userLists, setUserLists] = useState<UserListsState>(initialUserLists)
     const [loading, setLoading] = useState<boolean>(
         () => typeof window !== 'undefined' && !!getTokens()
     )
@@ -48,6 +56,7 @@ export default function MeProvider({ children }: PropsWithChildren) {
     // Clear user state
     const clearMe = useCallback(() => {
         setMe(null)
+        setUserLists(initialUserLists)
     }, [])
 
     // GET /me
@@ -101,6 +110,29 @@ export default function MeProvider({ children }: PropsWithChildren) {
         return response.data
     }, [])
 
+    // Refetch all 3 lists concurrently and update state
+    const refetchUserLists = useCallback(async (): Promise<UserListsState> => {
+        try {
+            const [likedMovies, watchedMovies, watchlist] = await Promise.all([
+                fetchLikedMovies(),
+                fetchWatchedMovies(),
+                fetchWatchlist(),
+            ])
+
+            const updatedLists: UserListsState = {
+                likedMovies,
+                watchedMovies,
+                watchlist,
+            }
+
+            setUserLists(updatedLists)
+            return updatedLists
+        } catch (error) {
+            console.error('Failed to refetch user movie lists:', error)
+            return initialUserLists
+        }
+    }, [fetchLikedMovies, fetchWatchedMovies, fetchWatchlist])
+
     // DELETE /me
     const deleteMe = useCallback(async (): Promise<MessageResponse> => {
         const response = await api.delete<MessageResponse>(
@@ -121,14 +153,30 @@ export default function MeProvider({ children }: PropsWithChildren) {
         }
 
         api.get<UserResponse>(endpoints[EndpointsEnum.ME].getMe)
-            .then((response) => {
+            .then(async (response) => {
                 if (isMounted) {
                     setMe(response.data)
+                }
+                // Fetch lists after confirming user session
+                const [likedMovies, watchedMovies, watchlist] =
+                    await Promise.all([
+                        fetchLikedMovies(),
+                        fetchWatchedMovies(),
+                        fetchWatchlist(),
+                    ])
+
+                if (isMounted) {
+                    setUserLists({
+                        likedMovies,
+                        watchedMovies,
+                        watchlist,
+                    })
                 }
             })
             .catch(() => {
                 if (isMounted) {
                     setMe(null)
+                    setUserLists(initialUserLists)
                 }
             })
             .finally(() => {
@@ -140,29 +188,33 @@ export default function MeProvider({ children }: PropsWithChildren) {
         return () => {
             isMounted = false
         }
-    }, [])
+    }, [fetchLikedMovies, fetchWatchedMovies, fetchWatchlist])
 
     // Context Value
     const contextValue = useMemo(
         () => ({
             me,
             loading,
+            userLists,
             fetchMe,
             fetchLikedMovies,
             fetchWatchedMovies,
             fetchWatchlist,
             fetchUserTaste,
+            refetchUserLists,
             deleteMe,
             clearMe,
         }),
         [
             me,
             loading,
+            userLists,
             fetchMe,
             fetchLikedMovies,
             fetchWatchedMovies,
             fetchWatchlist,
             fetchUserTaste,
+            refetchUserLists,
             deleteMe,
             clearMe,
         ]

@@ -8,6 +8,10 @@ import {
 // Types
 import { CrewResponse, MovieResponse } from '@/src/types/api-responses.types'
 
+export type PageWithParamsProps = {
+    params: Promise<{ id: string }>
+}
+
 export type FormInputProps = InputHTMLAttributes<HTMLInputElement> & {
     label: string
     isPassword?: boolean
@@ -57,4 +61,17 @@ export type SearchBarProps = {
     onSubmit: (e: SubmitEvent<HTMLFormElement>) => void
     placeholder?: string
     ariaLabel?: string
+}
+
+export type PageSkeletonProps = {
+    type?: 'movie-details' | 'crew-details'
+}
+
+export type MovieActionButtonProps = {
+    label: string
+    activeLabel?: string
+    isActive: boolean
+    isLoading?: boolean
+    onClick: () => void | Promise<void>
+    variant: 'like' | 'watch' | 'watchlist'
 }

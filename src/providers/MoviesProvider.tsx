@@ -9,6 +9,8 @@ import {
     useCallback,
     useMemo,
 } from 'react'
+// Hooks
+import { useMe } from '@/src/providers/MeProvider'
 // Enums
 import { EndpointsEnum } from '@/src/enums/endpoints.enum'
 // Types
@@ -40,6 +42,8 @@ export const useMovies = () => {
 
 // Provider
 export default function MoviesProvider({ children }: PropsWithChildren) {
+    const { refetchUserLists } = useMe()
+
     // GET /movies?search={string}
     const getAllMovies = useCallback(
         async (search?: string): Promise<MovieResponse[]> => {
@@ -104,9 +108,10 @@ export default function MoviesProvider({ children }: PropsWithChildren) {
             const response = await api.post<MessageResponse>(
                 endpoints[EndpointsEnum.MOVIES].likeMovie(id)
             )
+            await refetchUserLists()
             return response.data
         },
-        []
+        [refetchUserLists]
     )
 
     // DELETE /movies/:id/like
@@ -115,9 +120,10 @@ export default function MoviesProvider({ children }: PropsWithChildren) {
             const response = await api.delete<MessageResponse>(
                 endpoints[EndpointsEnum.MOVIES].unlikeMovie(id)
             )
+            await refetchUserLists()
             return response.data
         },
-        []
+        [refetchUserLists]
     )
 
     // POST /movies/:id/watch
@@ -126,9 +132,10 @@ export default function MoviesProvider({ children }: PropsWithChildren) {
             const response = await api.post<MessageResponse>(
                 endpoints[EndpointsEnum.MOVIES].watchMovie(id)
             )
+            await refetchUserLists()
             return response.data
         },
-        []
+        [refetchUserLists]
     )
 
     // DELETE /movies/:id/watch
@@ -137,9 +144,10 @@ export default function MoviesProvider({ children }: PropsWithChildren) {
             const response = await api.delete<MessageResponse>(
                 endpoints[EndpointsEnum.MOVIES].unwatchMovie(id)
             )
+            await refetchUserLists()
             return response.data
         },
-        []
+        [refetchUserLists]
     )
 
     // POST /movies/:id/watchlist
@@ -148,9 +156,10 @@ export default function MoviesProvider({ children }: PropsWithChildren) {
             const response = await api.post<MessageResponse>(
                 endpoints[EndpointsEnum.MOVIES].addToWatchlist(id)
             )
+            await refetchUserLists()
             return response.data
         },
-        []
+        [refetchUserLists]
     )
 
     // DELETE /movies/:id/watchlist
@@ -159,9 +168,10 @@ export default function MoviesProvider({ children }: PropsWithChildren) {
             const response = await api.delete<MessageResponse>(
                 endpoints[EndpointsEnum.MOVIES].removeFromWatchlist(id)
             )
+            await refetchUserLists()
             return response.data
         },
-        []
+        [refetchUserLists]
     )
 
     // Context Value

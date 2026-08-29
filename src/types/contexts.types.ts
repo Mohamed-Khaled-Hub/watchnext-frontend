@@ -14,6 +14,7 @@ import {
     MovieDetailsResponse,
     MovieRelatedResponse,
     MovieConnectionResponse,
+    CrewDetailsResponse,
 } from '@/src/types/api-responses.types'
 import { FooterSection, NavigationLink } from '@/src/types/ui.types'
 
@@ -26,14 +27,22 @@ export type AuthContextType = {
     logout: () => void
 }
 
+export type UserListsState = {
+    likedMovies: MovieResponse[]
+    watchedMovies: MovieResponse[]
+    watchlist: MovieResponse[]
+}
+
 export type MeContextType = {
     me: UserResponse | null
     loading: boolean
+    userLists: UserListsState
     fetchMe: () => Promise<UserResponse | null>
     fetchLikedMovies: () => Promise<MovieResponse[]>
     fetchWatchedMovies: () => Promise<MovieResponse[]>
     fetchWatchlist: () => Promise<MovieResponse[]>
     fetchUserTaste: () => Promise<TasteResponse[]>
+    refetchUserLists: () => Promise<UserListsState>
     deleteMe: () => Promise<MessageResponse>
     clearMe: () => void
 }
@@ -57,7 +66,7 @@ export type MoviesContextType = {
 
 export type CrewContextType = {
     getAllCrew: (search?: string) => Promise<CrewResponse[]>
-    getCrewById: (id: string) => Promise<CrewResponse>
+    getCrewById: (id: string) => Promise<CrewDetailsResponse>
     getCrewMovies: (id: string) => Promise<CrewMoviesResponse[]>
 }
 

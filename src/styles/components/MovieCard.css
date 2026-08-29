@@ -24,6 +24,32 @@
     @apply w-full h-full flex items-center justify-center bg-neutral-800 text-neutral-400 font-bold text-lg;
 }
 
+/* Badges Container */
+.movie-card__badges {
+    @apply absolute top-2 right-2 z-10 flex items-center gap-1.5 p-1 rounded-lg bg-neutral-900/80 backdrop-blur-md border border-neutral-700/60 shadow-lg;
+}
+
+.movie-card__badge {
+    @apply flex items-center justify-center p-1 rounded-md transition-colors;
+}
+
+.movie-card__badge-icon {
+    @apply w-3.5 h-3.5 shrink-0;
+}
+
+/* Variant Active Styles - Matched with Action Buttons */
+.movie-card__badge--like {
+    @apply bg-rose-500/15 text-rose-400;
+}
+
+.movie-card__badge--watch {
+    @apply bg-sky-500/15 text-sky-400;
+}
+
+.movie-card__badge--watchlist {
+    @apply bg-emerald-500/15 text-emerald-400;
+}
+
 .movie-card__content {
     @apply w-full space-y-0.5;
 }

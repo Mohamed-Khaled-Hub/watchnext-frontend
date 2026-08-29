@@ -1,0 +1,55 @@
+@import '../../../../globals.css';
+
+.crew-details-page {
+    @apply space-y-12 pb-12;
+}
+
+/* Hero / Profile Section */
+.crew-profile {
+    @apply flex flex-col md:flex-row items-center md:items-start gap-8 bg-neutral-900/60 p-6 md:p-8 rounded-2xl border border-neutral-800/80;
+}
+
+.crew-profile__avatar-wrapper {
+    @apply relative w-40 h-40 md:w-52 md:h-52 rounded-2xl overflow-hidden bg-neutral-800 shrink-0 border border-neutral-800/80 shadow-xl;
+}
+
+.crew-profile__image {
+    @apply object-cover transition-transform duration-300 hover:scale-105;
+}
+
+.crew-profile__info {
+    @apply flex flex-col items-center md:items-start text-center md:text-left space-y-4 w-full;
+}
+
+.crew-profile__name {
+    @apply text-3xl md:text-4xl font-bold tracking-tight text-white;
+}
+
+.crew-profile__roles {
+    @apply flex flex-wrap justify-center md:justify-start gap-2;
+}
+
+.crew-profile__role-badge {
+    @apply px-3 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/20 rounded-lg text-xs font-semibold capitalize tracking-wide;
+}
+
+/* Filmography Sections */
+.crew-filmography {
+    @apply space-y-6;
+}
+
+.crew-filmography__title {
+    @apply text-xl font-bold tracking-tight text-white border-b border-neutral-800/80 pb-3 flex items-center gap-3;
+}
+
+.crew-filmography__count {
+    @apply text-xs font-normal text-neutral-400 bg-neutral-800/80 px-2.5 py-1 rounded-full border border-neutral-800;
+}
+
+.crew-filmography__grid {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4;
+}
+
+.crew-filmography__empty {
+    @apply text-sm text-neutral-400 col-span-full py-8 text-center bg-neutral-900/40 rounded-xl border border-neutral-800/50;
+}

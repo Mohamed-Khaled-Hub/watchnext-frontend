@@ -1,0 +1,68 @@
+@import '../../../../globals.css';
+
+.movie-details-page {
+    @apply space-y-12 pb-12;
+}
+
+/* Hero Section */
+.movie-hero {
+    @apply flex flex-col md:flex-row items-center md:items-start gap-8 bg-neutral-900/60 p-6 md:p-8 rounded-2xl border border-neutral-800/80 relative;
+}
+
+.movie-hero__poster-wrapper {
+    @apply relative w-48 h-72 md:w-56 md:h-80 rounded-2xl overflow-hidden bg-neutral-800 shrink-0 border border-neutral-800/80 shadow-2xl;
+}
+
+.movie-hero__poster {
+    @apply object-cover transition-transform duration-300 hover:scale-105;
+}
+
+.movie-hero__info {
+    @apply flex flex-col items-center md:items-start text-center md:text-left space-y-4 w-full md:pr-4;
+}
+
+.movie-hero__title {
+    @apply text-3xl md:text-4xl font-bold tracking-tight text-white;
+}
+
+.movie-hero__meta {
+    @apply flex items-center gap-3 text-sm text-neutral-400 font-medium;
+}
+
+.movie-hero__rating {
+    @apply flex items-center gap-1.5 text-amber-400 font-semibold bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-md;
+}
+
+.movie-hero__genres {
+    @apply flex flex-wrap justify-center md:justify-start gap-2 pt-2;
+}
+
+.movie-hero__genre-badge {
+    @apply px-3 py-1 bg-neutral-800 text-neutral-300 border border-neutral-700/60 rounded-lg text-xs font-semibold tracking-wide;
+}
+
+/* Hero Actions Container */
+.movie-hero__actions {
+    @apply flex flex-col sm:flex-row md:flex-col gap-3 shrink-0 w-full md:w-48 pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-neutral-800/80 md:pl-6;
+}
+
+/* Sections */
+.movie-section {
+    @apply space-y-6;
+}
+
+.movie-section__title {
+    @apply text-xl font-bold tracking-tight text-white border-b border-neutral-800/80 pb-3 flex items-center gap-3;
+}
+
+.movie-section__count {
+    @apply text-xs font-normal text-neutral-400 bg-neutral-800/80 px-2.5 py-1 rounded-full border border-neutral-800;
+}
+
+.movie-section__grid {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4;
+}
+
+.movie-section__empty {
+    @apply text-sm text-neutral-400 col-span-full py-8 text-center bg-neutral-900/40 rounded-xl border border-neutral-800/50;
+}
